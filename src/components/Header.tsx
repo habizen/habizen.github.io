@@ -1,7 +1,13 @@
+"use client";
+
 import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { useTranslations } from '@/lib/LanguageContext';
 
 export default function Header() {
+  const t = useTranslations('header');
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -14,26 +20,27 @@ export default function Header() {
         
         <nav className="hidden md:flex items-center space-x-6">
           <Link href="/" className="text-sm font-medium transition-colors hover:text-primary">
-            Home
+            {t('home')}
           </Link>
           <Link href="/features" className="text-sm font-medium transition-colors hover:text-primary">
-            Features
+            {t('features')}
           </Link>
           <Link href="/challenges" className="text-sm font-medium transition-colors hover:text-primary">
-            Challenges
+            {t('challenges')}
           </Link>
           <Link href="/badges" className="text-sm font-medium transition-colors hover:text-primary">
-            Badges
+            {t('badges')}
           </Link>
         </nav>
         
         <div className="flex items-center space-x-3">
+          <LanguageSwitcher />
           <ThemeToggle />
           <button className="hidden sm:inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground">
-            Sign In
+            {t('signIn')}
           </button>
           <button className="inline-flex h-9 items-center justify-center rounded-md gradient-gold px-4 text-sm font-medium text-white transition-opacity hover:opacity-90">
-            Get Started
+            {t('getStarted')}
           </button>
         </div>
       </div>

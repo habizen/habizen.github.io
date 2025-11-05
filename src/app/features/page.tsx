@@ -3,8 +3,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { useTranslations } from "@/lib/LanguageContext";
 
 export default function FeaturesPage() {
+  const t = useTranslations('features');
+
   return (
     <>
       <Header />
@@ -26,10 +29,10 @@ export default function FeaturesPage() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                Powerful Features for <span className="gradient-gold-text">Lasting Change</span>
+                {t('hero_title_1')} <span className="gradient-gold-text">{t('hero_title_2')}</span>
               </h1>
               <p className="text-xl text-muted-foreground">
-                Everything you need to build habits, achieve goals, and stay motivated
+                {t('hero_description')}
               </p>
             </motion.div>
           </div>
@@ -61,13 +64,13 @@ export default function FeaturesPage() {
                 className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-4"
                 whileHover={{ scale: 1.05 }}
               >
-                🚀 Hikayemiz
+                {t('story_badge')}
               </motion.div>
               <h2 className="text-4xl font-bold tracking-tight mb-6">
-                Samsun'dan Dünyaya <span className="gradient-gold-text">Uzanan Bir Vizyon</span>
+                {t('story_title_1')} <span className="gradient-gold-text">{t('story_title_2')}</span>
               </h2>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Yerel bir tutkuyla başlayan yolculuğumuz, güçlü bir ekip ve deneyimli insanlarla birlikte, bugün dünya çapında bir dönüşüme öncülük ediyor.
+                {t('story_description')}
               </p>
             </motion.div>
 
@@ -75,22 +78,22 @@ export default function FeaturesPage() {
             <div className="grid md:grid-cols-3 gap-8 mb-16">
               {[
                 {
-                  city: "Samsun",
+                  city: t('journey_city_1'),
                   icon: "🌟",
-                  title: "Başlangıç",
-                  description: "Yerel bir vizyon ve tutkulu bir ekiple çıktığımız yolda, değişim yaratma hedefiyle ilk adımı attık."
+                  title: t('journey_title_1'),
+                  description: t('journey_desc_1')
                 },
                 {
-                  city: "Ankara & İstanbul",
+                  city: t('journey_city_2'),
                   icon: "🚀",
-                  title: "Büyüme",
-                  description: "Başkent ve metropolde güçlenerek, Türkiye'nin dört bir yanından deneyimli profesyonellerle ekibimizi genişlettik."
+                  title: t('journey_title_2'),
+                  description: t('journey_desc_2')
                 },
                 {
-                  city: "Dünya",
+                  city: t('journey_city_3'),
                   icon: "🌍",
-                  title: "Küresel Açılım",
-                  description: "Modern teknolojiler ve yapay zeka ile donatılmış platformumuzla, küresel bir topluluk oluşturuyoruz."
+                  title: t('journey_title_3'),
+                  description: t('journey_desc_3')
                 }
               ].map((step, index) => (
                 <motion.div
