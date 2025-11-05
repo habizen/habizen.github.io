@@ -4,7 +4,11 @@ import path from "node:path";
 const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader.js');
 
 const nextConfig: NextConfig = {
+  // Enable static HTML export for GitHub Pages deployment
+  output: 'export',
   images: {
+    // Disable image optimization for static export (no server-side processing)
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
