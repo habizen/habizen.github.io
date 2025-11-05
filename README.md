@@ -20,6 +20,39 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Build for Production
+
+To build the static site for production:
+
+```bash
+npm run build
+```
+
+This will create an `out` directory with all static files ready for deployment.
+
+## GitHub Pages Deployment
+
+This project is configured to automatically deploy to GitHub Pages using GitHub Actions. The workflow runs on every push to the `main` branch.
+
+### Setup Instructions
+
+1. Go to your repository Settings → Pages
+2. Under "Build and deployment", select "GitHub Actions" as the source
+3. Push to the `main` branch to trigger the deployment
+4. Your site will be available at `https://<username>.github.io/<repository-name>/`
+
+The deployment workflow is defined in `.github/workflows/deploy.yml` and performs the following steps:
+- Installs dependencies
+- Builds the Next.js static export
+- Deploys to GitHub Pages
+
+### Manual Deployment
+
+You can also trigger the deployment manually:
+1. Go to Actions tab in your repository
+2. Select "Deploy to GitHub Pages" workflow
+3. Click "Run workflow"
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
