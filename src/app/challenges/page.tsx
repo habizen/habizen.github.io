@@ -1,5 +1,8 @@
+"use client";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { motion } from "framer-motion";
 
 const categories = [
   { id: 1, name: "Health", icon: "🏥", color: "from-red-500 to-pink-500", count: 24 },
@@ -71,138 +74,184 @@ export default function ChallengesPage() {
       <Header />
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-background to-muted/30 pt-24 pb-16">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl text-center">
+        <section className="relative bg-gradient-to-b from-background via-muted/20 to-background pt-24 pb-16 overflow-hidden">
+          <div className="absolute inset-0">
+            <motion.div
+              className="absolute top-10 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl"
+              animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.6, 0.3] }}
+              transition={{ duration: 10, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute bottom-10 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl"
+              animate={{ scale: [1.2, 1, 1.2], opacity: [0.4, 0.6, 0.4] }}
+              transition={{ duration: 12, repeat: Infinity }}
+            />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
+            <motion.div
+              className="mx-auto max-w-3xl text-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
                 Discover Your Next <span className="gradient-gold-text">Challenge</span>
               </h1>
               <p className="text-xl text-muted-foreground">
                 Choose from hundreds of challenges across 16 categories. Start your transformation today.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Categories Grid */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="mb-12">
+            <motion.div
+              className="mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
               <h2 className="text-3xl font-bold tracking-tight mb-4">
                 Browse by Category
               </h2>
               <p className="text-lg text-muted-foreground">
                 16 diverse categories to match your goals and interests
               </p>
-            </div>
+            </motion.div>
             
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {categories.map((category) => (
-                <div
+              {categories.map((category, index) => (
+                <motion.div
                   key={category.id}
-                  className="group relative cursor-pointer overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all hover:shadow-xl hover:-translate-y-1"
+                  className="group relative cursor-pointer overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all hover:shadow-2xl"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
                 >
                   <div className="relative z-10">
-                    <div className="mb-4 text-5xl">{category.icon}</div>
-                    <h3 className="mb-2 text-xl font-semibold">{category.name}</h3>
+                    <motion.div
+                      className="mb-4 text-5xl"
+                      whileHover={{ scale: 1.2, rotate: 10 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {category.icon}
+                    </motion.div>
+                    <h3 className="mb-2 text-xl font-semibold group-hover:gradient-gold-text transition-all">{category.name}</h3>
                     <p className="text-sm text-muted-foreground">
                       {category.count} active challenges
                     </p>
                   </div>
-                  <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 transition-opacity group-hover:opacity-5`}></div>
-                </div>
+                  <motion.div
+                    className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity`}
+                    initial={false}
+                  />
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
         {/* Challenge Types */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl text-center mb-12">
+        <section className="py-20 bg-muted/30 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, var(--color-border) 1px, transparent 1px)`,
+              backgroundSize: "40px 40px"
+            }} />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
+            <motion.div
+              className="mx-auto max-w-3xl text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
               <h2 className="text-3xl font-bold tracking-tight mb-4">
                 Choose Your Duration
               </h2>
               <p className="text-lg text-muted-foreground">
                 Pick the timeframe that works best for your goals
               </p>
-            </div>
+            </motion.div>
             
             <div className="grid gap-8 md:grid-cols-3">
-              <div className="rounded-2xl border border-border bg-card p-8">
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-xl gradient-gold">
-                  <span className="text-3xl font-bold text-white">30</span>
-                </div>
-                <h3 className="mb-3 text-2xl font-bold">30-Day Challenges</h3>
-                <p className="mb-6 text-muted-foreground">
-                  Perfect for building new habits and testing the waters. Quick wins to build momentum.
-                </p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                    <span>Beginner-friendly</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                    <span>Fast results</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                    <span>Low commitment</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="rounded-2xl border-2 border-primary bg-card p-8 relative">
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full gradient-gold px-4 py-1 text-xs font-semibold text-white">
-                  MOST POPULAR
-                </div>
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-xl gradient-gold">
-                  <span className="text-3xl font-bold text-white">60</span>
-                </div>
-                <h3 className="mb-3 text-2xl font-bold">60-Day Challenges</h3>
-                <p className="mb-6 text-muted-foreground">
-                  The sweet spot for lasting change. Enough time to form solid habits and see real progress.
-                </p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                    <span>Balanced difficulty</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                    <span>Sustainable change</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                    <span>Proven timeframe</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="rounded-2xl border border-border bg-card p-8">
-                <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-xl gradient-gold">
-                  <span className="text-3xl font-bold text-white">90</span>
-                </div>
-                <h3 className="mb-3 text-2xl font-bold">90-Day Challenges</h3>
-                <p className="mb-6 text-muted-foreground">
-                  For serious transformations. Build deep-rooted habits that last a lifetime.
-                </p>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                    <span>Expert level</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                    <span>Life-changing results</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
-                    <span>Maximum impact</span>
-                  </li>
-                </ul>
-              </div>
+              {[
+                {
+                  days: 30,
+                  title: "30-Day Challenges",
+                  desc: "Perfect for building new habits and testing the waters. Quick wins to build momentum.",
+                  features: ["Beginner-friendly", "Fast results", "Low commitment"],
+                  highlight: false
+                },
+                {
+                  days: 60,
+                  title: "60-Day Challenges",
+                  desc: "The sweet spot for lasting change. Enough time to form solid habits and see real progress.",
+                  features: ["Balanced difficulty", "Sustainable change", "Proven timeframe"],
+                  highlight: true
+                },
+                {
+                  days: 90,
+                  title: "90-Day Challenges",
+                  desc: "For serious transformations. Build deep-rooted habits that last a lifetime.",
+                  features: ["Expert level", "Life-changing results", "Maximum impact"],
+                  highlight: false
+                }
+              ].map((challenge, index) => (
+                <motion.div
+                  key={index}
+                  className={`rounded-2xl bg-card p-8 relative ${
+                    challenge.highlight ? "border-2 border-primary shadow-2xl" : "border border-border"
+                  }`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -8 }}
+                >
+                  {challenge.highlight && (
+                    <motion.div
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full gradient-gold px-4 py-1 text-xs font-semibold text-white shadow-lg"
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ type: "spring", stiffness: 200 }}
+                    >
+                      MOST POPULAR
+                    </motion.div>
+                  )}
+                  <motion.div
+                    className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-xl gradient-gold shadow-lg"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <span className="text-3xl font-bold text-white">{challenge.days}</span>
+                  </motion.div>
+                  <h3 className="mb-3 text-2xl font-bold">{challenge.title}</h3>
+                  <p className="mb-6 text-muted-foreground">
+                    {challenge.desc}
+                  </p>
+                  <ul className="space-y-2 text-sm">
+                    {challenge.features.map((feature, i) => (
+                      <motion.li
+                        key={i}
+                        className="flex items-center gap-2"
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 + i * 0.1 }}
+                      >
+                        <div className="h-1.5 w-1.5 rounded-full bg-primary"></div>
+                        <span>{feature}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -210,68 +259,114 @@ export default function ChallengesPage() {
         {/* Example Challenges */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="mb-12">
+            <motion.div
+              className="mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
               <h2 className="text-3xl font-bold tracking-tight mb-4">
                 Popular Challenges
               </h2>
               <p className="text-lg text-muted-foreground">
                 Join thousands of others on their journey
               </p>
-            </div>
+            </motion.div>
             
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {exampleChallenges.map((challenge, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="group rounded-2xl border border-border bg-card p-6 transition-all hover:shadow-lg hover:-translate-y-1"
+                  className="group rounded-2xl border border-border bg-card p-6 transition-all hover:shadow-2xl hover:border-primary/50 cursor-pointer overflow-hidden relative"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -8 }}
                 >
-                  <div className="mb-4 flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                      {challenge.category}
-                    </span>
-                    <span className="text-xs text-muted-foreground">
-                      {challenge.difficulty}
-                    </span>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   
-                  <h3 className="mb-3 text-xl font-semibold group-hover:text-primary transition-colors">
-                    {challenge.title}
-                  </h3>
-                  
-                  <div className="flex items-center justify-between text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <span>⏱️</span>
-                      <span>{challenge.duration}</span>
+                  <div className="relative z-10">
+                    <div className="mb-4 flex items-center justify-between">
+                      <motion.span
+                        className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        {challenge.category}
+                      </motion.span>
+                      <span className="text-xs text-muted-foreground">
+                        {challenge.difficulty}
+                      </span>
                     </div>
-                    <div className="flex items-center gap-1">
-                      <span>👥</span>
-                      <span>{challenge.participants.toLocaleString()} joined</span>
+                    
+                    <h3 className="mb-3 text-xl font-semibold group-hover:gradient-gold-text transition-all">
+                      {challenge.title}
+                    </h3>
+                    
+                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <span>⏱️</span>
+                        <span>{challenge.duration}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <span>👥</span>
+                        <span>{challenge.participants.toLocaleString()} joined</span>
+                      </div>
                     </div>
+                    
+                    <motion.button
+                      className="mt-6 w-full rounded-lg border border-border bg-background px-4 py-2 text-sm font-medium transition-all hover:bg-accent hover:shadow-lg"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      View Challenge
+                    </motion.button>
                   </div>
-                  
-                  <button className="mt-6 w-full rounded-lg border border-border bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent">
-                    View Challenge
-                  </button>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl text-center">
+        <section className="py-20 bg-muted/30 relative overflow-hidden">
+          <motion.div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, var(--color-border) 1px, transparent 1px)`,
+              backgroundSize: "40px 40px",
+              opacity: 0.3,
+            }}
+            animate={{
+              backgroundPosition: ["0px 0px", "40px 40px"],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+          <div className="container mx-auto px-4 relative z-10">
+            <motion.div
+              className="mx-auto max-w-3xl text-center rounded-3xl border border-border bg-card/50 backdrop-blur-xl p-12 shadow-2xl"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+            >
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
                 Create Your Own Challenge
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 Don't see what you're looking for? Start a custom challenge and invite friends to join you.
               </p>
-              <button className="inline-flex h-12 items-center justify-center rounded-lg gradient-gold px-8 text-base font-semibold text-white transition-opacity hover:opacity-90">
+              <motion.button
+                className="inline-flex h-12 items-center justify-center rounded-lg gradient-gold px-8 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
                 Create Challenge
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </div>
         </section>
       </main>
