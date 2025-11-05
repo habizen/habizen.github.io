@@ -3,106 +3,107 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { useTranslations } from "@/lib/LanguageContext";
 
 const badgeTypes = [
   {
     id: 1,
-    type: "Achievement",
+    typeKey: "type_achievement",
     icon: "🏆",
     count: 40,
     color: "from-yellow-500 to-orange-500",
-    description: "Earned by completing challenges and reaching milestones",
+    descKey: "type_achievement_desc",
     examples: [
-      { name: "First Steps", desc: "Complete your first challenge" },
-      { name: "Marathon Runner", desc: "Complete 10 challenges" },
-      { name: "Century Club", desc: "Complete 100 check-ins" },
+      { nameKey: "type_achievement_example_1", descKey: "type_achievement_example_1_desc" },
+      { nameKey: "type_achievement_example_2", descKey: "type_achievement_example_2_desc" },
+      { nameKey: "type_achievement_example_3", descKey: "type_achievement_example_3_desc" },
     ]
   },
   {
     id: 2,
-    type: "Level",
+    typeKey: "type_level",
     icon: "⭐",
     count: 16,
     color: "from-blue-500 to-cyan-500",
-    description: "Unlock as you level up your profile through XP gains",
+    descKey: "type_level_desc",
     examples: [
-      { name: "Novice", desc: "Reach Level 5" },
-      { name: "Expert", desc: "Reach Level 10" },
-      { name: "Master", desc: "Reach Level 15" },
+      { nameKey: "type_level_example_1", descKey: "type_level_example_1_desc" },
+      { nameKey: "type_level_example_2", descKey: "type_level_example_2_desc" },
+      { nameKey: "type_level_example_3", descKey: "type_level_example_3_desc" },
     ]
   },
   {
     id: 3,
-    type: "Streak",
+    typeKey: "type_streak",
     icon: "🔥",
     count: 22,
     color: "from-orange-500 to-red-500",
-    description: "Awarded for maintaining consistency with daily check-ins",
+    descKey: "type_streak_desc",
     examples: [
-      { name: "Week Warrior", desc: "7-day check-in streak" },
-      { name: "Month Master", desc: "30-day check-in streak" },
-      { name: "Unstoppable", desc: "100-day check-in streak" },
+      { nameKey: "type_streak_example_1", descKey: "type_streak_example_1_desc" },
+      { nameKey: "type_streak_example_2", descKey: "type_streak_example_2_desc" },
+      { nameKey: "type_streak_example_3", descKey: "type_streak_example_3_desc" },
     ]
   },
   {
     id: 4,
-    type: "Social",
+    typeKey: "type_social",
     icon: "👥",
     count: 13,
     color: "from-purple-500 to-pink-500",
-    description: "Earned through friend interactions and community engagement",
+    descKey: "type_social_desc",
     examples: [
-      { name: "Friendly", desc: "Add 5 friends" },
-      { name: "Social Butterfly", desc: "Add 25 friends" },
-      { name: "Team Player", desc: "Join 5 group challenges" },
+      { nameKey: "type_social_example_1", descKey: "type_social_example_1_desc" },
+      { nameKey: "type_social_example_2", descKey: "type_social_example_2_desc" },
+      { nameKey: "type_social_example_3", descKey: "type_social_example_3_desc" },
     ]
   },
   {
     id: 5,
-    type: "Special",
+    typeKey: "type_special",
     icon: "💎",
     count: 25,
     color: "from-indigo-500 to-purple-500",
-    description: "Rare badges for unique achievements and special events",
+    descKey: "type_special_desc",
     examples: [
-      { name: "Early Adopter", desc: "Join in the first month" },
-      { name: "Perfect Score", desc: "100% completion on a challenge" },
-      { name: "Night Owl", desc: "Check-in at midnight" },
+      { nameKey: "type_special_example_1", descKey: "type_special_example_1_desc" },
+      { nameKey: "type_special_example_2", descKey: "type_special_example_2_desc" },
+      { nameKey: "type_special_example_3", descKey: "type_special_example_3_desc" },
     ]
   },
   {
     id: 6,
-    type: "Bug Hunter",
+    typeKey: "type_bug_hunter",
     icon: "🐛",
     count: 10,
     color: "from-green-500 to-emerald-500",
-    description: "Recognition for helping improve the platform",
+    descKey: "type_bug_hunter_desc",
     examples: [
-      { name: "Spotter", desc: "Report your first bug" },
-      { name: "Detective", desc: "Report 5 bugs" },
-      { name: "Hero", desc: "Report 10 bugs" },
+      { nameKey: "type_bug_hunter_example_1", descKey: "type_bug_hunter_example_1_desc" },
+      { nameKey: "type_bug_hunter_example_2", descKey: "type_bug_hunter_example_2_desc" },
+      { nameKey: "type_bug_hunter_example_3", descKey: "type_bug_hunter_example_3_desc" },
     ]
   },
 ];
 
 const metaBadges = [
   {
-    name: "Sertifikalı (Certified)",
-    description: "Collect 30 unique badges",
+    nameKey: "meta_certified",
+    descKey: "meta_certified_desc",
     progress: 24,
     total: 30,
     icon: "📜"
   },
   {
-    name: "Mezun (Graduate)",
-    description: "Collect 60 unique badges",
+    nameKey: "meta_graduate",
+    descKey: "meta_graduate_desc",
     progress: 24,
     total: 60,
     icon: "🎓"
   },
   {
-    name: "Efsane (Legend)",
-    description: "Collect all 126 badges",
+    nameKey: "meta_legend",
+    descKey: "meta_legend_desc",
     progress: 24,
     total: 126,
     icon: "👑"
@@ -110,6 +111,8 @@ const metaBadges = [
 ];
 
 export default function BadgesPage() {
+  const t = useTranslations('badges');
+
   return (
     <>
       <Header />
@@ -136,10 +139,10 @@ export default function BadgesPage() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                Collect <span className="gradient-gold-text">126+ Unique Badges</span>
+                {t('hero_title_1')} <span className="gradient-gold-text">{t('hero_title_2')}</span>
               </h1>
               <p className="text-xl text-muted-foreground">
-                Every achievement deserves recognition. Track your progress and build your collection.
+                {t('hero_description')}
               </p>
               
               <motion.div
@@ -185,10 +188,10 @@ export default function BadgesPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl font-bold tracking-tight mb-4">
-                6 Badge Categories
+                {t('types_title')}
               </h2>
               <p className="text-lg text-muted-foreground">
-                Diverse ways to earn recognition for your efforts
+                {t('types_description')}
               </p>
             </motion.div>
             
@@ -220,9 +223,9 @@ export default function BadgesPage() {
                       </motion.div>
                     </div>
                     
-                    <h3 className="mb-3 text-2xl font-bold group-hover:gradient-gold-text transition-all">{badgeType.type}</h3>
+                    <h3 className="mb-3 text-2xl font-bold group-hover:gradient-gold-text transition-all">{t(badgeType.typeKey)}</h3>
                     <p className="mb-6 text-muted-foreground">
-                      {badgeType.description}
+                      {t(badgeType.descKey)}
                     </p>
                     
                     <div className="space-y-3">
@@ -237,8 +240,8 @@ export default function BadgesPage() {
                           transition={{ delay: 0.3 + i * 0.1 }}
                           whileHover={{ x: 5 }}
                         >
-                          <div className="font-medium text-sm">{example.name}</div>
-                          <div className="text-xs text-muted-foreground mt-1">{example.desc}</div>
+                          <div className="font-medium text-sm">{t(example.nameKey)}</div>
+                          <div className="text-xs text-muted-foreground mt-1">{t(example.descKey)}</div>
                         </motion.div>
                       ))}
                     </div>
@@ -273,10 +276,10 @@ export default function BadgesPage() {
                   className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-4"
                   whileHover={{ scale: 1.05 }}
                 >
-                  👑 Meta Badges
+                  {t('meta_title')}
                 </motion.div>
                 <h2 className="text-3xl font-bold tracking-tight mb-4">
-                  Ultimate Collection Rewards
+                  {t('meta_description')}
                 </h2>
                 <p className="text-lg text-muted-foreground">
                   Special badges for the most dedicated collectors
@@ -304,12 +307,12 @@ export default function BadgesPage() {
                       </motion.div>
                       <div className="flex-1">
                         <div className="mb-2 flex items-center justify-between">
-                          <h3 className="text-2xl font-bold group-hover:gradient-gold-text transition-all">{badge.name}</h3>
+                          <h3 className="text-2xl font-bold group-hover:gradient-gold-text transition-all">{t(badge.nameKey)}</h3>
                           <span className="text-lg font-semibold text-muted-foreground">
                             {badge.progress}/{badge.total}
                           </span>
                         </div>
-                        <p className="mb-4 text-muted-foreground">{badge.description}</p>
+                        <p className="mb-4 text-muted-foreground">{t(badge.descKey)}</p>
                         <div className="relative h-3 w-full overflow-hidden rounded-full bg-muted">
                           <motion.div 
                             className="h-full gradient-gold"

@@ -3,72 +3,75 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { useTranslations } from "@/lib/LanguageContext";
 
 const categories = [
-  { id: 1, name: "Health", icon: "🏥", color: "from-red-500 to-pink-500", count: 24 },
-  { id: 2, name: "Sports", icon: "⚽", color: "from-blue-500 to-cyan-500", count: 32 },
-  { id: 3, name: "Education", icon: "📚", color: "from-purple-500 to-indigo-500", count: 18 },
-  { id: 4, name: "Nutrition", icon: "🥗", color: "from-green-500 to-emerald-500", count: 21 },
-  { id: 5, name: "Mindfulness", icon: "🧘", color: "from-violet-500 to-purple-500", count: 15 },
-  { id: 6, name: "Productivity", icon: "💼", color: "from-orange-500 to-amber-500", count: 27 },
-  { id: 7, name: "Creativity", icon: "🎨", color: "from-pink-500 to-rose-500", count: 19 },
-  { id: 8, name: "Finance", icon: "💰", color: "from-yellow-500 to-orange-500", count: 12 },
-  { id: 9, name: "Social", icon: "👥", color: "from-cyan-500 to-blue-500", count: 16 },
-  { id: 10, name: "Environment", icon: "🌱", color: "from-emerald-500 to-green-500", count: 14 },
-  { id: 11, name: "Technology", icon: "💻", color: "from-indigo-500 to-blue-500", count: 22 },
-  { id: 12, name: "Language", icon: "🗣️", color: "from-red-500 to-orange-500", count: 13 },
-  { id: 13, name: "Music", icon: "🎵", color: "from-purple-500 to-pink-500", count: 11 },
-  { id: 14, name: "Reading", icon: "📖", color: "from-amber-500 to-yellow-500", count: 17 },
-  { id: 15, name: "Sleep", icon: "😴", color: "from-blue-500 to-indigo-500", count: 9 },
-  { id: 16, name: "Career", icon: "🚀", color: "from-teal-500 to-cyan-500", count: 20 },
+  { id: 1, name: "category_health", icon: "🏥", color: "from-red-500 to-pink-500", count: 24 },
+  { id: 2, name: "category_sports", icon: "⚽", color: "from-blue-500 to-cyan-500", count: 32 },
+  { id: 3, name: "category_education", icon: "📚", color: "from-purple-500 to-indigo-500", count: 18 },
+  { id: 4, name: "category_nutrition", icon: "🥗", color: "from-green-500 to-emerald-500", count: 21 },
+  { id: 5, name: "category_mindfulness", icon: "🧘", color: "from-violet-500 to-purple-500", count: 15 },
+  { id: 6, name: "category_productivity", icon: "💼", color: "from-orange-500 to-amber-500", count: 27 },
+  { id: 7, name: "category_creativity", icon: "🎨", color: "from-pink-500 to-rose-500", count: 19 },
+  { id: 8, name: "category_finance", icon: "💰", color: "from-yellow-500 to-orange-500", count: 12 },
+  { id: 9, name: "category_social", icon: "👥", color: "from-cyan-500 to-blue-500", count: 16 },
+  { id: 10, name: "category_environment", icon: "🌱", color: "from-emerald-500 to-green-500", count: 14 },
+  { id: 11, name: "category_technology", icon: "💻", color: "from-indigo-500 to-blue-500", count: 22 },
+  { id: 12, name: "category_language", icon: "🗣️", color: "from-red-500 to-orange-500", count: 13 },
+  { id: 13, name: "category_music", icon: "🎵", color: "from-purple-500 to-pink-500", count: 11 },
+  { id: 14, name: "category_reading", icon: "📖", color: "from-amber-500 to-yellow-500", count: 17 },
+  { id: 15, name: "category_sleep", icon: "😴", color: "from-blue-500 to-indigo-500", count: 9 },
+  { id: 16, name: "category_career", icon: "🚀", color: "from-teal-500 to-cyan-500", count: 20 },
 ];
 
 const exampleChallenges = [
   { 
-    title: "30-Day Morning Routine", 
-    category: "Health", 
+    titleKey: "challenge_1_title", 
+    category: "category_health", 
     duration: "30 days", 
     participants: 1234,
-    difficulty: "Beginner"
+    difficulty: "difficulty_beginner"
   },
   { 
-    title: "60-Day Fitness Transformation", 
-    category: "Sports", 
+    titleKey: "challenge_2_title", 
+    category: "category_sports", 
     duration: "60 days", 
     participants: 856,
-    difficulty: "Intermediate"
+    difficulty: "difficulty_intermediate"
   },
   { 
-    title: "90-Day Learning Journey", 
-    category: "Education", 
+    titleKey: "challenge_3_title", 
+    category: "category_education", 
     duration: "90 days", 
     participants: 542,
-    difficulty: "Advanced"
+    difficulty: "difficulty_advanced"
   },
   { 
-    title: "30-Day Plant-Based Diet", 
-    category: "Nutrition", 
+    titleKey: "challenge_4_title", 
+    category: "category_nutrition", 
     duration: "30 days", 
     participants: 723,
-    difficulty: "Beginner"
+    difficulty: "difficulty_beginner"
   },
   { 
-    title: "60-Day Meditation Practice", 
-    category: "Mindfulness", 
+    titleKey: "challenge_5_title", 
+    category: "category_mindfulness", 
     duration: "60 days", 
     participants: 445,
-    difficulty: "Beginner"
+    difficulty: "difficulty_beginner"
   },
   { 
-    title: "30-Day Side Project Sprint", 
-    category: "Productivity", 
+    titleKey: "challenge_6_title", 
+    category: "category_productivity", 
     duration: "30 days", 
     participants: 981,
-    difficulty: "Intermediate"
+    difficulty: "difficulty_intermediate"
   },
 ];
 
 export default function ChallengesPage() {
+  const t = useTranslations('challenges');
+
   return (
     <>
       <Header />
@@ -95,10 +98,10 @@ export default function ChallengesPage() {
               transition={{ duration: 0.6 }}
             >
               <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                Discover Your Next <span className="gradient-gold-text">Challenge</span>
+                {t('hero_title_1')} <span className="gradient-gold-text">{t('hero_title_2')}</span>
               </h1>
               <p className="text-xl text-muted-foreground">
-                Choose from hundreds of challenges across 16 categories. Start your transformation today.
+                {t('hero_description')}
               </p>
             </motion.div>
           </div>
@@ -114,10 +117,10 @@ export default function ChallengesPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl font-bold tracking-tight mb-4">
-                Browse by Category
+                {t('categories_title')}
               </h2>
               <p className="text-lg text-muted-foreground">
-                16 diverse categories to match your goals and interests
+                {t('categories_description')}
               </p>
             </motion.div>
             
@@ -140,7 +143,7 @@ export default function ChallengesPage() {
                     >
                       {category.icon}
                     </motion.div>
-                    <h3 className="mb-2 text-xl font-semibold group-hover:gradient-gold-text transition-all">{category.name}</h3>
+                    <h3 className="mb-2 text-xl font-semibold group-hover:gradient-gold-text transition-all">{t(category.name)}</h3>
                     <p className="text-sm text-muted-foreground">
                       {category.count} active challenges
                     </p>
@@ -266,7 +269,7 @@ export default function ChallengesPage() {
               viewport={{ once: true }}
             >
               <h2 className="text-3xl font-bold tracking-tight mb-4">
-                Popular Challenges
+                {t('example_title')}
               </h2>
               <p className="text-lg text-muted-foreground">
                 Join thousands of others on their journey
@@ -292,15 +295,15 @@ export default function ChallengesPage() {
                         className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
                         whileHover={{ scale: 1.05 }}
                       >
-                        {challenge.category}
+                        {t(challenge.category)}
                       </motion.span>
                       <span className="text-xs text-muted-foreground">
-                        {challenge.difficulty}
+                        {t(challenge.difficulty)}
                       </span>
                     </div>
                     
                     <h3 className="mb-3 text-xl font-semibold group-hover:gradient-gold-text transition-all">
-                      {challenge.title}
+                      {t(challenge.titleKey)}
                     </h3>
                     
                     <div className="flex items-center justify-between text-sm text-muted-foreground">
@@ -310,7 +313,7 @@ export default function ChallengesPage() {
                       </div>
                       <div className="flex items-center gap-1">
                         <span>👥</span>
-                        <span>{challenge.participants.toLocaleString()} joined</span>
+                        <span>{challenge.participants.toLocaleString()} {t('example_participants')}</span>
                       </div>
                     </div>
                     

@@ -5,9 +5,11 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useTranslations } from "@/lib/LanguageContext";
 
 export default function Home() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const t = useTranslations('home');
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -60,7 +62,7 @@ export default function Home() {
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
                 </span>
-                126+ Badges • XP System • Social Features
+                {t('badge_line')}
               </motion.div>
               
               <motion.h1
@@ -69,8 +71,8 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
               >
-                Build Habits,<br />
-                <span className="gradient-gold-text">Achieve Goals</span>
+                {t('hero_title_1')}<br />
+                <span className="gradient-gold-text">{t('hero_title_2')}</span>
               </motion.h1>
               
               <motion.p
@@ -79,8 +81,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                Join the gamified challenge platform where every check-in counts. 
-                Track progress, earn badges, and compete with friends through 30/60/90-day challenges.
+                {t('hero_description')}
               </motion.p>
               
               <motion.div
@@ -94,7 +95,7 @@ export default function Home() {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <span>Start Your Journey</span>
+                  <span>{t('start_journey')}</span>
                   <motion.span
                     className="ml-2"
                     initial={{ x: 0 }}
@@ -109,7 +110,7 @@ export default function Home() {
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    Explore Features
+                    {t('explore_features')}
                   </motion.div>
                 </Link>
               </motion.div>
@@ -123,10 +124,10 @@ export default function Home() {
               transition={{ delay: 0.7, duration: 0.6 }}
             >
               {[
-                { value: "126+", label: "Unique Badges" },
-                { value: "16", label: "Categories" },
-                { value: "3", label: "Challenge Types" },
-                { value: "∞", label: "Possibilities" }
+                { value: "126+", label: t('stats_badges') },
+                { value: "16", label: t('stats_categories') },
+                { value: "3", label: t('stats_challenge_types') },
+                { value: "∞", label: t('stats_possibilities') }
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -203,10 +204,10 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-                Everything You Need to Succeed
+                {t('features_title')}
               </h2>
               <p className="text-lg text-muted-foreground">
-                A complete gamification platform designed to keep you motivated
+                {t('features_description')}
               </p>
             </motion.div>
             
@@ -214,33 +215,33 @@ export default function Home() {
               {[
                 {
                   icon: "🏆",
-                  title: "Challenge System",
-                  description: "Choose from 30, 60, or 90-day challenges across 16 categories. Track your progress daily with photo check-ins."
+                  title: t('feature_challenge_title'),
+                  description: t('feature_challenge_desc')
                 },
                 {
                   icon: "🏅",
-                  title: "Badge Collection",
-                  description: "Earn from 126+ unique badges across 6 types: achievement, level, streak, social, special, and bug hunter."
+                  title: t('feature_badge_title'),
+                  description: t('feature_badge_desc')
                 },
                 {
                   icon: "⭐",
-                  title: "XP & Leveling",
-                  description: "Gain experience points for every action. Level up your profile and unlock exclusive rewards as you progress."
+                  title: t('feature_xp_title'),
+                  description: t('feature_xp_desc')
                 },
                 {
                   icon: "👥",
-                  title: "Social Features",
-                  description: "Connect with friends, see their activities, compete on leaderboards, and invite them to join your challenges."
+                  title: t('feature_social_title'),
+                  description: t('feature_social_desc')
                 },
                 {
                   icon: "✅",
-                  title: "Daily Check-ins",
-                  description: "Upload photos to prove your progress. Build consistency with streak tracking and earn bonus rewards."
+                  title: t('feature_checkin_title'),
+                  description: t('feature_checkin_desc')
                 },
                 {
                   icon: "🔔",
-                  title: "Smart Notifications",
-                  description: "Stay on track with timely reminders, friend activity updates, badge unlocks, and milestone celebrations."
+                  title: t('feature_notification_title'),
+                  description: t('feature_notification_desc')
                 }
               ].map((feature, index) => (
                 <motion.div
@@ -322,7 +323,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
               >
-                Ready to Transform Your Life?
+                {t('cta_title')}
               </motion.h2>
               <motion.p
                 className="text-lg text-muted-foreground mb-8"
@@ -331,7 +332,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
               >
-                Start your first challenge today and join thousands building better habits
+                {t('cta_description')}
               </motion.p>
               <motion.div
                 className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
@@ -346,7 +347,7 @@ export default function Home() {
                   whileTap={{ scale: 0.98 }}
                 >
                   <span className="mr-2">📱</span>
-                  Download for iOS
+                  {t('download_ios')}
                 </motion.button>
                 <motion.button
                   className="group inline-flex h-12 items-center justify-center rounded-lg gradient-gold px-8 text-base font-semibold text-white shadow-lg hover:shadow-xl transition-all"
@@ -354,7 +355,7 @@ export default function Home() {
                   whileTap={{ scale: 0.98 }}
                 >
                   <span className="mr-2">🤖</span>
-                  Download for Android
+                  {t('download_android')}
                 </motion.button>
               </motion.div>
             </motion.div>
