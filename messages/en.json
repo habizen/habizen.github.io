@@ -161,6 +161,8 @@
     "meta_certified": "Certified",
     "meta_certified_desc": "Collect 30 unique badges",
     "meta_graduate": "Graduate",
-    "meta_graduate_desc": "Collect 60 unique badges"
+    "meta_graduate_desc": "Collect 60 unique badges",
+    "meta_legend": "Legend",
+    "meta_legend_desc": "Collect all 126 badges"
   }
 }

@@ -161,6 +161,8 @@
     "meta_certified": "Сертифицированный",
     "meta_certified_desc": "Соберите 30 уникальных значков",
     "meta_graduate": "Выпускник",
-    "meta_graduate_desc": "Соберите 60 уникальных значков"
+    "meta_graduate_desc": "Соберите 60 уникальных значков",
+    "meta_legend": "Легенда",
+    "meta_legend_desc": "Соберите все 126 значков"
   }
 }

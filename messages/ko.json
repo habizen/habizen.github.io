@@ -161,6 +161,8 @@
     "meta_certified": "인증",
     "meta_certified_desc": "30개의 고유 배지 수집",
     "meta_graduate": "졸업",
-    "meta_graduate_desc": "60개의 고유 배지 수집"
+    "meta_graduate_desc": "60개의 고유 배지 수집",
+    "meta_legend": "전설",
+    "meta_legend_desc": "모든 126개 배지 수집"
   }
 }
