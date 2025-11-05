@@ -133,6 +133,71 @@ export default function FeaturesPage() {
               ))}
             </div>
 
+            {/* Journey Video */}
+            <motion.div
+              className="mb-16"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <motion.div
+                className="group relative rounded-3xl overflow-hidden border-2 border-border bg-card/50 backdrop-blur-xl shadow-2xl hover:shadow-primary/20 transition-all duration-500"
+                whileHover={{ y: -8, scale: 1.01 }}
+              >
+                {/* Video Container */}
+                <div className="relative aspect-video w-full overflow-hidden">
+                  <video
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_videos/cinematic-journey-montage-showing-the-gr-98db8ad3-20251105211822.mp4"
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                  
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  {/* Play Icon Overlay (decorative) */}
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    initial={{ scale: 0.8 }}
+                    whileHover={{ scale: 1 }}
+                  >
+                    <div className="w-20 h-20 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
+                      <motion.div
+                        className="text-primary text-4xl"
+                        animate={{ scale: [1, 1.1, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      >
+                        ▶
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                </div>
+                
+                {/* Video Caption */}
+                <motion.div
+                  className="p-6 text-center bg-gradient-to-b from-card/80 to-card"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <h3 className="text-xl font-bold mb-2 gradient-gold-text">
+                    Yolculuğumuz
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    Samsun'dan başlayıp dünyaya uzanan hikayemizi keşfedin
+                  </p>
+                </motion.div>
+
+                {/* Glow Effect */}
+                <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-primary/10 via-transparent to-accent/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </motion.div>
+            </motion.div>
+
             {/* Team Excellence */}
             <motion.div
               className="rounded-3xl border border-border bg-card/50 backdrop-blur-xl overflow-hidden shadow-2xl mb-16"
