@@ -35,6 +35,185 @@ export default function FeaturesPage() {
           </div>
         </section>
 
+        {/* Mobile App Screenshots */}
+        <section className="py-20 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden">
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, var(--color-border) 1px, transparent 1px)`,
+              backgroundSize: "40px 40px"
+            }} />
+          </div>
+          <div className="container mx-auto px-4 relative z-10">
+            <motion.div
+              className="mx-auto max-w-3xl text-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-4"
+                whileHover={{ scale: 1.05 }}
+              >
+                📱 Mobile Experience
+              </motion.div>
+              <h2 className="text-3xl font-bold tracking-tight mb-4">
+                Beautiful Mobile App Design
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Experience seamless habit tracking on the go with our elegantly designed mobile interface
+              </p>
+            </motion.div>
+
+            {/* Screenshots Grid */}
+            <div className="relative">
+              {/* Desktop: Horizontal scroll showcase */}
+              <div className="hidden md:flex gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide">
+                {[
+                  {
+                    url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_images/modern-mobile-app-screenshot-showing-hab-fd28368c-20251105210821.jpg",
+                    title: "Challenge Tracking",
+                    description: "Monitor your 30, 60, and 90-day challenges"
+                  },
+                  {
+                    url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_images/modern-mobile-app-screenshot-showing-bad-cc471eea-20251105210825.jpg",
+                    title: "Badge Collection",
+                    description: "Collect 126+ unique achievement badges"
+                  },
+                  {
+                    url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_images/modern-mobile-app-screenshot-of-daily-ch-7871f43a-20251105210823.jpg",
+                    title: "Daily Check-ins",
+                    description: "Document your progress with photo uploads"
+                  },
+                  {
+                    url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_images/modern-mobile-app-screenshot-showing-soc-1da3c819-20251105210823.jpg",
+                    title: "Social Feed",
+                    description: "Stay connected with friends and community"
+                  },
+                  {
+                    url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_images/modern-mobile-app-screenshot-displaying--d36f4bcf-20251105210823.jpg",
+                    title: "Level Progress",
+                    description: "Track your XP and level up your journey"
+                  }
+                ].map((screenshot, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex-shrink-0 snap-center"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <motion.div
+                      className="group relative"
+                      whileHover={{ y: -10 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <div className="relative w-[280px] h-[560px] rounded-[2.5rem] overflow-hidden border-[8px] border-foreground/10 shadow-2xl bg-card">
+                        <img
+                          src={screenshot.url}
+                          alt={screenshot.title}
+                          className="w-full h-full object-cover"
+                        />
+                        {/* Overlay on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                          <h3 className="text-white font-bold text-xl mb-2">{screenshot.title}</h3>
+                          <p className="text-white/90 text-sm">{screenshot.description}</p>
+                        </div>
+                      </div>
+                      {/* Glow effect */}
+                      <div className="absolute inset-0 -z-10 rounded-[2.5rem] bg-gradient-to-br from-primary/20 to-primary/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </motion.div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Mobile: Stacked vertical layout */}
+              <div className="md:hidden space-y-8">
+                {[
+                  {
+                    url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_images/modern-mobile-app-screenshot-showing-hab-fd28368c-20251105210821.jpg",
+                    title: "Challenge Tracking",
+                    description: "Monitor your 30, 60, and 90-day challenges with visual progress"
+                  },
+                  {
+                    url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_images/modern-mobile-app-screenshot-showing-bad-cc471eea-20251105210825.jpg",
+                    title: "Badge Collection",
+                    description: "Collect 126+ unique achievement badges across 6 categories"
+                  },
+                  {
+                    url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_images/modern-mobile-app-screenshot-of-daily-ch-7871f43a-20251105210823.jpg",
+                    title: "Daily Check-ins",
+                    description: "Document your progress with photo uploads and build streaks"
+                  },
+                  {
+                    url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_images/modern-mobile-app-screenshot-showing-soc-1da3c819-20251105210823.jpg",
+                    title: "Social Feed",
+                    description: "Stay connected with friends and see their achievements"
+                  },
+                  {
+                    url: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_images/modern-mobile-app-screenshot-displaying--d36f4bcf-20251105210823.jpg",
+                    title: "Level Progress",
+                    description: "Track your XP and level up as you achieve your goals"
+                  }
+                ].map((screenshot, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex flex-col items-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <div className="relative w-[280px] h-[560px] rounded-[2.5rem] overflow-hidden border-[8px] border-foreground/10 shadow-2xl bg-card mb-4">
+                      <img
+                        src={screenshot.url}
+                        alt={screenshot.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="text-center max-w-[280px]">
+                      <h3 className="font-bold text-lg mb-2">{screenshot.title}</h3>
+                      <p className="text-muted-foreground text-sm">{screenshot.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Download CTA */}
+            <motion.div
+              className="mt-12 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-muted-foreground mb-6">Download now and start your transformation</p>
+              <div className="flex gap-4 justify-center flex-wrap">
+                <motion.button
+                  className="inline-flex items-center gap-2 rounded-lg bg-black text-white px-6 py-3 font-medium hover:bg-black/90 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                  </svg>
+                  App Store
+                </motion.button>
+                <motion.button
+                  className="inline-flex items-center gap-2 rounded-lg bg-black text-white px-6 py-3 font-medium hover:bg-black/90 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+                  </svg>
+                  Google Play
+                </motion.button>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
         {/* Challenge System */}
         <section className="py-20">
           <div className="container mx-auto px-4">
