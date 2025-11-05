@@ -148,7 +148,7 @@ export default function FeaturesPage() {
                 {/* Video Container */}
                 <div className="relative aspect-video w-full overflow-hidden">
                   <video
-                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_videos/cinematic-journey-montage-showing-the-gr-98db8ad3-20251105211822.mp4"
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_videos/cinematic-journey-montage-showing-the-gr-9d7d6f53-20251105212502.mp4"
                     className="w-full h-full object-cover"
                     autoPlay
                     loop
