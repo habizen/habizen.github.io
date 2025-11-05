@@ -313,7 +313,7 @@ export default function ChallengesPage() {
                       </div>
                       <div className="flex items-center gap-1">
                         <span>👥</span>
-                        <span>{challenge.participants.toLocaleString()} {t('example_participants').toLowerCase()}</span>
+                        <span>{challenge.participants.toLocaleString()} {t('example_participants')}</span>
                       </div>
                     </div>
                     

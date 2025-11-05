@@ -29,7 +29,7 @@ export function LanguageSwitcher() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center space-x-2 px-3 py-2 rounded-md hover:bg-accent transition-colors"
-        aria-label="Select language"
+        aria-label={`Language: ${currentLanguage.name}`}
       >
         <span className="text-lg">{currentLanguage.flag}</span>
         <span className="hidden sm:inline text-sm font-medium">{currentLanguage.name}</span>
