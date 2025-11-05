@@ -35,6 +35,287 @@ export default function FeaturesPage() {
           </div>
         </section>
 
+        {/* Our Story Section */}
+        <section className="py-20 bg-gradient-to-b from-background via-muted/20 to-background relative overflow-hidden">
+          <div className="absolute inset-0">
+            <motion.div
+              className="absolute top-20 left-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+              animate={{ scale: [1, 1.4, 1], opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 15, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute bottom-20 right-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl"
+              animate={{ scale: [1.3, 1, 1.3], opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 12, repeat: Infinity }}
+            />
+          </div>
+
+          <div className="container mx-auto px-4 relative z-10">
+            <motion.div
+              className="mx-auto max-w-4xl text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary mb-4"
+                whileHover={{ scale: 1.05 }}
+              >
+                🚀 Hikayemiz
+              </motion.div>
+              <h2 className="text-4xl font-bold tracking-tight mb-6">
+                Samsun'dan Dünyaya <span className="gradient-gold-text">Uzanan Bir Vizyon</span>
+              </h2>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                Yerel bir tutkuyla başlayan yolculuğumuz, güçlü bir ekip ve deneyimli insanlarla birlikte, bugün dünya çapında bir dönüşüme öncülük ediyor.
+              </p>
+            </motion.div>
+
+            {/* Journey Path */}
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              {[
+                {
+                  city: "Samsun",
+                  icon: "🌟",
+                  title: "Başlangıç",
+                  description: "Yerel bir vizyon ve tutkulu bir ekiple çıktığımız yolda, değişim yaratma hedefiyle ilk adımı attık."
+                },
+                {
+                  city: "Ankara & İstanbul",
+                  icon: "🚀",
+                  title: "Büyüme",
+                  description: "Başkent ve metropolde güçlenerek, Türkiye'nin dört bir yanından deneyimli profesyonellerle ekibimizi genişlettik."
+                },
+                {
+                  city: "Dünya",
+                  icon: "🌍",
+                  title: "Küresel Açılım",
+                  description: "Modern teknolojiler ve yapay zeka ile donatılmış platformumuzla, küresel bir topluluk oluşturuyoruz."
+                }
+              ].map((step, index) => (
+                <motion.div
+                  key={index}
+                  className="relative"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 }}
+                >
+                  <motion.div
+                    className="rounded-2xl border border-border bg-card/70 backdrop-blur-sm p-8 text-center hover:shadow-2xl transition-all cursor-pointer h-full"
+                    whileHover={{ y: -8, scale: 1.02 }}
+                  >
+                    <motion.div
+                      className="text-6xl mb-4"
+                      whileHover={{ scale: 1.2, rotate: 10 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      {step.icon}
+                    </motion.div>
+                    <div className="text-sm font-semibold text-primary mb-2">{step.city}</div>
+                    <h3 className="text-2xl font-bold mb-3 gradient-gold-text">{step.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                  </motion.div>
+                  
+                  {/* Connection Arrow */}
+                  {index < 2 && (
+                    <motion.div
+                      className="hidden md:block absolute top-1/2 -right-4 text-3xl text-primary/40"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 + index * 0.2 }}
+                    >
+                      →
+                    </motion.div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Team Excellence */}
+            <motion.div
+              className="rounded-3xl border border-border bg-card/50 backdrop-blur-xl overflow-hidden shadow-2xl mb-16"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="relative h-64 md:h-auto overflow-hidden">
+                  <img
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_images/modern-professional-team-working-togethe-5e6fdb5e-20251105211435.jpg"
+                    alt="Güçlü ve deneyimli ekibimiz"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-card/80 to-transparent" />
+                </div>
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <h3 className="text-3xl font-bold mb-4">
+                      Güçlü Ekip, <span className="gradient-gold-text">Deneyimli İnsanlar</span>
+                    </h3>
+                    <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                      Modern dünyanın tekniklerine ayak uyduran, yapay zeka teknolojilerini projelerine entegre eden ve her adımda yenilikçi çözümler üreten bir ekiple çalışıyoruz.
+                    </p>
+                    <ul className="space-y-3">
+                      {[
+                        "Deneyimli profesyonellerden oluşan güçlü kadro",
+                        "Yapay zeka ve modern teknolojilerde uzmanlaşmış ekip",
+                        "Sürekli öğrenen ve gelişen dinamik yapı",
+                        "Kullanıcı odaklı çözüm yaklaşımı"
+                      ].map((item, i) => (
+                        <motion.li
+                          key={i}
+                          className="flex items-start gap-3"
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.3 + i * 0.1 }}
+                        >
+                          <motion.div
+                            className="mt-1 flex h-5 w-5 items-center justify-center rounded-full gradient-gold text-xs text-white flex-shrink-0"
+                            whileHover={{ scale: 1.2, rotate: 360 }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                          >
+                            ✓
+                          </motion.div>
+                          <span className="text-muted-foreground">{item}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Ethics & AI Security */}
+            <motion.div
+              className="rounded-3xl border border-border bg-card/50 backdrop-blur-xl overflow-hidden shadow-2xl"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="p-8 md:p-12 flex flex-col justify-center order-2 md:order-1">
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <h3 className="text-3xl font-bold mb-4">
+                      Etik Değerler ve <span className="gradient-gold-text">Güvenlik Önceliğimiz</span>
+                    </h3>
+                    <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                      En önemlisi, etik değerlere derin bir saygı duyuyoruz. Kullanıcılarımızın verilerini güvenle saklıyor ve her adımda şeffaflığı esas alıyoruz.
+                    </p>
+                    <div className="space-y-6">
+                      <div className="rounded-xl border border-primary/20 bg-primary/5 p-6">
+                        <div className="flex items-start gap-4">
+                          <motion.div
+                            className="text-3xl"
+                            whileHover={{ scale: 1.2, rotate: 10 }}
+                          >
+                            🤖
+                          </motion.div>
+                          <div>
+                            <h4 className="font-semibold mb-2">Yapay Zeka Destekli Kontrol</h4>
+                            <p className="text-sm text-muted-foreground">
+                              Her challenge oluşturulduğunda, yapay zeka sistemlerimiz etik değerleri otomatik olarak kontrol eder.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="rounded-xl border border-primary/20 bg-primary/5 p-6">
+                        <div className="flex items-start gap-4">
+                          <motion.div
+                            className="text-3xl"
+                            whileHover={{ scale: 1.2, rotate: 10 }}
+                          >
+                            🛡️
+                          </motion.div>
+                          <div>
+                            <h4 className="font-semibold mb-2">Fraud ve Güvenlik Koruması</h4>
+                            <p className="text-sm text-muted-foreground">
+                              Sahte hesaplar, ahlaksız davranışlar ve fraud girişimleri anlık olarak tespit edilir ve engellenir.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="rounded-xl border border-primary/20 bg-primary/5 p-6">
+                        <div className="flex items-start gap-4">
+                          <motion.div
+                            className="text-3xl"
+                            whileHover={{ scale: 1.2, rotate: 10 }}
+                          >
+                            🔒
+                          </motion.div>
+                          <div>
+                            <h4 className="font-semibold mb-2">Veri Gizliliği ve Güvenliği</h4>
+                            <p className="text-sm text-muted-foreground">
+                              Kullanıcı verileriniz en üst seviye güvenlik standartlarıyla korunur ve asla üçüncü taraflarla paylaşılmaz.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+                <div className="relative h-64 md:h-auto overflow-hidden order-1 md:order-2">
+                  <img
+                    src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/42f964bf-64b0-4b46-947b-330222f81850/generated_images/abstract-digital-illustration-of-ai-powe-c6e1dd10-20251105211433.jpg"
+                    alt="Yapay zeka destekli güvenlik ve etik kontrol"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-l from-card/80 to-transparent" />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Core Values */}
+            <motion.div
+              className="mt-16 grid md:grid-cols-4 gap-6"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              {[
+                { icon: "💡", title: "Yenilikçilik", desc: "Modern teknolojilerle geleceği şekillendiriyoruz" },
+                { icon: "🤝", title: "Güvenilirlik", desc: "Şeffaflık ve dürüstlük temel değerlerimiz" },
+                { icon: "🎯", title: "Kullanıcı Odaklı", desc: "Her karar kullanıcı deneyimi önceliğiyle alınır" },
+                { icon: "🌱", title: "Sürdürülebilirlik", desc: "Uzun vadeli değer ve etki yaratıyoruz" }
+              ].map((value, index) => (
+                <motion.div
+                  key={index}
+                  className="text-center p-6 rounded-xl border border-border bg-card/30 hover:bg-card/70 transition-all cursor-pointer"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -5, scale: 1.05 }}
+                >
+                  <motion.div
+                    className="text-4xl mb-3"
+                    whileHover={{ scale: 1.3, rotate: 15 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    {value.icon}
+                  </motion.div>
+                  <h4 className="font-semibold mb-2">{value.title}</h4>
+                  <p className="text-sm text-muted-foreground">{value.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
         {/* Mobile App Screenshots */}
         <section className="py-20 bg-gradient-to-b from-muted/30 to-background relative overflow-hidden">
           <div className="absolute inset-0 opacity-30">
