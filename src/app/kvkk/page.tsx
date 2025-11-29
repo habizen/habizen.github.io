@@ -259,13 +259,13 @@ export default function KVKKPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-2xl font-bold mb-8 gradient-gold-text">Your Data, Protected</h3>
+                <h3 className="text-2xl font-bold mb-8 gradient-gold-text">{t('trust_title')}</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                   {[
-                    { icon: "🔒", label: "Encrypted" },
-                    { icon: "🛡️", label: "Secured" },
-                    { icon: "✅", label: "Compliant" },
-                    { icon: "🌐", label: "Global Standards" }
+                    { icon: "🔒", labelKey: "trust_encrypted" },
+                    { icon: "🛡️", labelKey: "trust_secured" },
+                    { icon: "✅", labelKey: "trust_compliant" },
+                    { icon: "🌐", labelKey: "trust_global" }
                   ].map((item, index) => (
                     <motion.div
                       key={index}
@@ -282,7 +282,7 @@ export default function KVKKPage() {
                       >
                         {item.icon}
                       </motion.div>
-                      <div className="text-sm text-muted-foreground">{item.label}</div>
+                      <div className="text-sm text-muted-foreground">{t(item.labelKey)}</div>
                     </motion.div>
                   ))}
                 </div>

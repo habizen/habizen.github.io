@@ -246,6 +246,11 @@
     "section7_title": "7. Çerezler ve İzleme",
     "section7_content": "Deneyiminizi geliştirmek için çerezler ve benzer teknolojiler kullanıyoruz. Çerez tercihlerinizi çerez ayarlarımız aracılığıyla yönetebilirsiniz. Daha fazla bilgi için lütfen Gizlilik Politikamıza bakın.",
     "section8_title": "8. Veri İhlali Bildirimi",
-    "section8_content": "Haklarınız ve özgürlükleriniz için risk oluşturması muhtemel bir kişisel veri ihlali durumunda, sizi gecikmeksizin ve mümkünse 72 saat içinde bilgilendireceğiz."
+    "section8_content": "Haklarınız ve özgürlükleriniz için risk oluşturması muhtemel bir kişisel veri ihlali durumunda, sizi gecikmeksizin ve mümkünse 72 saat içinde bilgilendireceğiz.",
+    "trust_title": "Verileriniz Korunuyor",
+    "trust_encrypted": "Şifreli",
+    "trust_secured": "Güvenli",
+    "trust_compliant": "Uyumlu",
+    "trust_global": "Küresel Standartlar"
   }
 }

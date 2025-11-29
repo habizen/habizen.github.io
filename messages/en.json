@@ -246,6 +246,11 @@
     "section7_title": "7. Cookies and Tracking",
     "section7_content": "We use cookies and similar technologies to enhance your experience. You can manage your cookie preferences through our cookie settings. For more information, please refer to our Privacy Policy.",
     "section8_title": "8. Data Breach Notification",
-    "section8_content": "In the event of a personal data breach that is likely to result in a risk to your rights and freedoms, we will notify you without undue delay and within 72 hours where feasible."
+    "section8_content": "In the event of a personal data breach that is likely to result in a risk to your rights and freedoms, we will notify you without undue delay and within 72 hours where feasible.",
+    "trust_title": "Your Data, Protected",
+    "trust_encrypted": "Encrypted",
+    "trust_secured": "Secured",
+    "trust_compliant": "Compliant",
+    "trust_global": "Global Standards"
   }
 }
