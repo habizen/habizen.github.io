@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="w-full border-t border-border/40 bg-muted/30">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-5">
           <div className="space-y-3">
             <div className="flex items-center space-x-2">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg gradient-gold">
@@ -37,6 +37,14 @@ export default function Footer() {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li><a href="#" className="hover:text-foreground transition-colors">{t('iosApp')}</a></li>
               <li><a href="#" className="hover:text-foreground transition-colors">{t('androidApp')}</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 className="mb-4 text-sm font-semibold">{t('legal')}</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li><Link href="/privacy-policy" className="hover:text-foreground transition-colors">{t('privacyPolicy')}</Link></li>
+              <li><Link href="/kvkk" className="hover:text-foreground transition-colors">{t('kvkk')}</Link></li>
             </ul>
           </div>
           
